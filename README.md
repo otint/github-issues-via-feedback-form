@@ -1,7 +1,7 @@
 GitHub Issues via Feedback Form
 ===============================
 
-Push user feedback from your website directly to [GitHub Issues](https://github.com/blog/831-issues-2-0-the-next-generation). This CSharp ASP.NET MVC 3 project uses [RestSharp](https://github.com/restsharp/RestSharp) to connect with the [GitHub API v3](http://developer.github.com/v3/). [See an example of an issue created from the website](https://github.com/otint/github-issues-via-feedback-form/issues/7).
+Push user feedback from your website directly to [GitHub Issues](https://github.com/blog/831-issues-2-0-the-next-generation). This CSharp ASP.NET MVC 3 project uses [RestSharp](https://github.com/restsharp/RestSharp) to connect with the [GitHub API v3](http://developer.github.com/v3/). Here's an example of [an issue created from the website](https://github.com/otint/github-issues-via-feedback-form/issues/7).
 
 ## Building
 
