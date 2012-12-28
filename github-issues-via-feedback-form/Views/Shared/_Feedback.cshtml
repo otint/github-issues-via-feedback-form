@@ -1,0 +1,17 @@
+﻿<span id="sendfeedback">
+  <button class="btn btn-primary btn-large pull-right" data-controls-modal="modal-from-dom-feedback" data-backdrop="true"
+    data-keyboard="true">
+    Send Feedback »</button>
+</span>
+<div id="modal-from-dom-feedback" class="modal hide fade" style="display: none;">
+  <div class="modal-header">
+    <a href="#" id="btnCloseModal_nurse" name="btnCloseModal_nurse" class="close">×</a>
+    <h4>Feedback entered below will create a GitHub Issue:</h4>
+  </div>
+  <div class="modal-body" style="background-color: #ffffff;">
+    <textarea id="feedbackmessage" style="width: 97%; height: 150px;"></textarea>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary btn-large" name="feedback_add" id="feedback_add">Create GitHub Issue from feedback</a>
+  </div>
+</div>
