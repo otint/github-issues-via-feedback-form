@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-issues-via-feedback-form", "github-issues-via-feedback-form\github-issues-via-feedback-form.csproj", "{E32BA153-729D-4947-B3DC-D1D877C79B72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github", "github\github.csproj", "{F1FF5C83-3EDC-4CDB-8FEB-49A3D8A130A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{E32BA153-729D-4947-B3DC-D1D877C79B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E32BA153-729D-4947-B3DC-D1D877C79B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E32BA153-729D-4947-B3DC-D1D877C79B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1FF5C83-3EDC-4CDB-8FEB-49A3D8A130A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1FF5C83-3EDC-4CDB-8FEB-49A3D8A130A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1FF5C83-3EDC-4CDB-8FEB-49A3D8A130A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1FF5C83-3EDC-4CDB-8FEB-49A3D8A130A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

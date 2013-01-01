@@ -148,6 +148,12 @@
   <ItemGroup>
     <None Include="appSettings.dll.config.example" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\github\github.csproj">
+      <Project>{F1FF5C83-3EDC-4CDB-8FEB-49A3D8A130A7}</Project>
+      <Name>github</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
