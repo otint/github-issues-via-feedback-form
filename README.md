@@ -11,7 +11,7 @@ To run the project you'll have to first rename the file `appSettings.dll.config.
 <appSettings>
   <add key="username" value="your github username"/>
   <add key="password" value="your github password"/>
-  <add key="resource" value="/repos/github-username/github-repo/issues"/>
+  <add key="repo" value="github-repo"/>
   <add key="defaultlabel" value="feedback"/>
 </appSettings>
 ```
