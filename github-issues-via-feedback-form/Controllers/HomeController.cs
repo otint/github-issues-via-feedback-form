@@ -5,22 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using RestSharp;
 using Newtonsoft.Json;
+using github;
 
 namespace github_issues_via_feedback_form.Controllers
 {
   public class HomeController : Controller
   {
-    private RestRequest _restRequest;
-    private string _username;
-    private string _password;
-    private string _resource;
-    private string _defaultlabel;
+    githubAPI api = new githubAPI(System.Configuration.ConfigurationManager.AppSettings["username"], System.Configuration.ConfigurationManager.AppSettings["password"]);
+    private string _repo = "github-issues-via-feedback-form";
 
     //
     // GET: /home/
     //
     public ActionResult Index()
     {
+      List<Issue> issues = api.Issues.List();
+
       return View();
     }
 
@@ -54,37 +54,21 @@ namespace github_issues_via_feedback_form.Controllers
       html += "Supports JAVA Applets: " + Request.Browser.JavaApplets + "<br />";
       html += "CDF: " + Request.Browser.CDF + "</p>";
 
-      //send feedback to github
+      string _defaultlabel = System.Configuration.ConfigurationManager.AppSettings["defaultlabel"];
+
       try
       {
+        Issue issue = api.Issues.Create(new Dictionary<string, object>() {
+          {"resource", "repos/" + System.Configuration.ConfigurationManager.AppSettings["username"] + "/" +_repo + "/issues"},
+          {"addBody",  new { title = form["feedbackmessage"], body = html, labels = new List<string> { _defaultlabel } } }
+        });
 
-      _username = System.Configuration.ConfigurationManager.AppSettings["username"];
-      _password = System.Configuration.ConfigurationManager.AppSettings["password"];
-      _resource = System.Configuration.ConfigurationManager.AppSettings["resource"];
-      _defaultlabel = System.Configuration.ConfigurationManager.AppSettings["defaultlabel"];
-
-        var client = new RestClient
-        {
-          BaseUrl = "https://api.github.com",
-          Authenticator = new HttpBasicAuthenticator(_username, _password)
-        };
-
-        _restRequest = new RestRequest(Method.POST)
-        {
-          Resource = _resource,
-          RequestFormat = DataFormat.Json
-        };
-        _restRequest.AddBody(new { title = form["feedbackmessage"], body = html, labels = new List<string> { _defaultlabel } });
-
-        var response = client.Execute(_restRequest);
-        var keyresponse = JsonConvert.DeserializeObject<dynamic>(response.Content);
-
-        string html_url = keyresponse.html_url; 
-
-        return Json(new { status = response.StatusCode, message = response.Content, html_url = html_url });
+        return Json(new { status = "201", message = "Success", html_url = issue.html_url });
       }
-      catch (Exception ex) {
-        return Json(new { data = "An MVC error occurred: " + ex.Message });
+      catch (githubException e)
+      {
+        System.Diagnostics.Debug.WriteLine(e.Message);
+        return Json(new { data = "An error occurred: " + e.Message });
       }
 
     }
