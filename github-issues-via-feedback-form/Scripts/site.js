@@ -11,8 +11,12 @@
 
     $('#feedbackmessage').val('');
 
+    //change post path depending on Simple or HomeController version
+    var _url = "/home";
+    if (window.location.href.indexOf("simple") > -1) { _url = "/simple"; }
+
     $.ajax({
-      url: "/home/sendfeedback",
+      url: _url + "/sendfeedback",
       type: "POST",
       contentType: "application/x-www-form-urlencoded",
       data: fdata,

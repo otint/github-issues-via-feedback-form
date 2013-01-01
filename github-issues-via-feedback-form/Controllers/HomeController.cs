@@ -12,7 +12,7 @@ namespace github_issues_via_feedback_form.Controllers
   public class HomeController : Controller
   {
     githubAPI api = new githubAPI(System.Configuration.ConfigurationManager.AppSettings["username"], System.Configuration.ConfigurationManager.AppSettings["password"]);
-    private string _repo = "github-issues-via-feedback-form";
+    private string _repo = System.Configuration.ConfigurationManager.AppSettings["repo"];
 
     //
     // GET: /home/
